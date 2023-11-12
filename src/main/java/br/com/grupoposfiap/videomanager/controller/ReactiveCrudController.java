@@ -20,7 +20,7 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public abstract class ReactiveCrudController<T, M extends BaseEntity<M>> {
 
-    private final ReactiveCrudService<M, ?> service;
+    private final ReactiveCrudService<M> service;
     private final BaseMapper<M, T> mapper;
 
     @GetMapping

@@ -13,7 +13,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
-public class VideoService extends ReactiveCrudService<Video, VideoRepository> {
+public class VideoService extends ReactiveCrudService<Video> {
 
     private final UserRepository users;
 
@@ -39,7 +39,7 @@ public class VideoService extends ReactiveCrudService<Video, VideoRepository> {
                 })
                 .flatMapMany(Flux::fromIterable);
 
-        return repo.findByCategoriesIn(categories);
+        return ((VideoRepository) repo).findByCategoriesIn(categories);
     }
 
     public void favoriteVideo(String userId, String videoId) {

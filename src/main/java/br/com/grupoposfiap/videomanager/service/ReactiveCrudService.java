@@ -11,10 +11,10 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
-public abstract class ReactiveCrudService<T extends BaseEntity<T>, R extends ReactiveMongoRepository<T, String>> {
+public abstract class ReactiveCrudService<T extends BaseEntity<T>> {
 
     @Getter
-    protected final R repo;
+    protected final ReactiveMongoRepository<T, String> repo;
 
     public Mono<T> create(T entity) {
         return repo.save(entity);

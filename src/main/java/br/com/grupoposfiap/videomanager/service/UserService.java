@@ -6,7 +6,7 @@ import br.com.grupoposfiap.videomanager.domain.User;
 import br.com.grupoposfiap.videomanager.repository.UserRepository;
 
 @Service
-public class UserService extends ReactiveCrudService<User, UserRepository> {
+public class UserService extends ReactiveCrudService<User> {
 
     public UserService(UserRepository repo) {
         super(repo);
