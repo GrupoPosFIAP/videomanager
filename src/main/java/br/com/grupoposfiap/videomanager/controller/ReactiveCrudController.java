@@ -41,13 +41,14 @@ public abstract class ReactiveCrudController<T, M extends BaseEntity<M>> {
 
     @DeleteMapping("/{id}")
     public Mono<Void> delete(@PathVariable String id) {
-        log.info("deleting dto {}", id);
+        log.info("deleting data {}", id);
         return service.delete(id);
     }
 
     @PutMapping("/{id}")
     public Mono<T> update(@PathVariable("id") String id, @RequestBody T dto) {
         var model = mapper.toModel(dto);
+        log.info("Updating data {}", id);
         return service
                 .update(id, model)
                 .map(mapper::toDto);

@@ -6,5 +6,6 @@ public enum Category {
     ADVENTURE,
     ACTION,
     COMEDY,
+    HORROR,
     OTHER;
 }

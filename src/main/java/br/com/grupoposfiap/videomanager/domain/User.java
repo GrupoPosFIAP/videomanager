@@ -2,6 +2,7 @@ package br.com.grupoposfiap.videomanager.domain;
 
 import java.util.List;
 
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.util.StringUtils;
 
@@ -22,6 +23,8 @@ import lombok.NoArgsConstructor;
 public class User extends BaseEntity<User> {
 
     private String name;
+
+    @Indexed(unique = true)
     private String email;
     private List<Video> favorites;
 
