@@ -1,14 +1,9 @@
 package br.com.grupoposfiap.videomanager.dto;
 
 import java.util.List;
-
-import lombok.Data;
-
-@Data
-public class UserDto{
-
-    private String id;
-    private String name;
-    private String email;
-    private List<VideoDto> favorites;
-}
+public record UserDto(
+    String id,
+    String name,
+    String email,
+    List<VideoDto> favorites
+) {}
