@@ -22,6 +22,12 @@ public class VideoService extends ReactiveCrudService<Video> {
         this.users = users;
     }
 
+    public Flux<Video> findAll(Video videoExample, Pageable page) {
+        var example = Example.of(videoExample);
+
+        return repo.findAll(example, page);
+    }
+
     public Flux<Video> recommendations(String id) {
 
         var user = users

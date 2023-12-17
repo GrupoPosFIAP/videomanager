@@ -16,4 +16,12 @@ public class VideoController extends ReactiveCrudController<VideoDto, Video> {
         super(service, mapper);
     }
 
+    @GetMapping
+    public Flux<Video> findAll(@RequestBody Video example, Pageable pageable) {
+        log.info("Retrieving list of videos");
+
+        var list = service.findAll(example, pageable);
+
+        return list.map(mapper:toDto);
+    }
 }
