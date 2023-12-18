@@ -22,8 +22,9 @@ public class VideoService extends ReactiveCrudService<Video> {
         this.users = users;
     }
 
-    public Flux<Video> findAll(Video videoExample, Pageable page) {
-        var example = Example.of(videoExample);
+    public Flux<Video> findAll(Video videoExample, Pageable pageable) {
+        var example = ExampleBuilder.of(videoExample);
+        var page = PageRequest.of(pageable.get PageNumber(), pageable.getPageSize(), Sort.by("publishDate"));
 
         return repo.findAll(example, page);
     }
